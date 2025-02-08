@@ -36,25 +36,23 @@ const products = [
 
 const ProductGrid: React.FC = () => {
   return (
-    <section className="bg-texture bg-brand-gray">
-      <Bounded>
-        <SlideIn>
-          <Heading className="text-center mb-6" as="h2">
-            Latest Drop
-          </Heading>
-        </SlideIn>
-        <SlideIn>
-          <div className="text-center mb-10">
-            <p>Grab our freshest designs before they sell out!</p>
-          </div>
-        </SlideIn>
-        <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {products.map((product) => (
-            <SkateboardProduct key={product.id} {...product} />
-          ))}
+    <Bounded className="bg-texture bg-brand-gray">
+      <SlideIn>
+        <Heading className="text-center mb-6" as="h2">
+          Latest Drop
+        </Heading>
+      </SlideIn>
+      <SlideIn>
+        <div className="text-center mb-10">
+          <p>Grab our freshest designs before they sell out!</p>
         </div>
-      </Bounded>
-    </section>
+      </SlideIn>
+      <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {products.map((product) => (
+          <SkateboardProduct key={product.id} {...product} />
+        ))}
+      </div>
+    </Bounded>
   );
 };
 

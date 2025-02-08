@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { ParalaxSections } from "@/components/paralax-section";
 import ProductGrid from "@/components/product-grid";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <Hero />
       <ProductGrid />
+      <ParalaxSections />
     </main>
   );
 }
