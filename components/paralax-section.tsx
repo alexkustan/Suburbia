@@ -59,24 +59,22 @@ export const ParalaxSections: React.FC = () => {
     <>
       {sectionsData.map((section, index) => {
         const isMirrored = index % 2 !== 0; // Check if section should be mirrored
-        const isLast = index === sectionsData.length - 1; // Check if it's the last section
 
         return (
           <Bounded
             key={index}
             className={clsx(
-              !isLast && "sticky top-[calc(var(--index)*2rem)]", // Sticky unless last section
+              "sticky top-[calc(var(--index)*2rem)]", // Sticky unless last section
               "bg-texture",
               section.theme === "Blue" && "bg-brand-blue text-white",
               section.theme === "Orange" && "bg-brand-orange text-white",
               section.theme === "Navy" && "bg-brand-navy text-white",
-              section.theme === "Lime" && "bg-brand-lime",
-              isLast && "relative z-10" // Ensures last section is above the others
+              section.theme === "Lime" && "bg-brand-lime"
             )}
             style={
               {
                 "--index": index,
-                ...(isLast && { zIndex: 10 }),
+                ...{ zIndex: 10 },
               } as React.CSSProperties
             }
           >
