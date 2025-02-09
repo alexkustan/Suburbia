@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 
-import bgTexture from "@/public/paint-background.png"; // Background texture
+import bgTexture from "@/public/paint-background.png";
 import gui1 from "@/public/guy-1.png";
 import gui2 from "@/public/guy-2.png";
 import gui3 from "@/public/guy-3.png";
@@ -18,7 +18,7 @@ declare module "react" {
   }
 }
 
-// Section Data (simulating CMS-like structure)
+// Section Data
 const sectionsData = [
   {
     heading: "Crafted for the Kickflip",
@@ -58,19 +58,27 @@ export const ParalaxSections: React.FC = () => {
   return (
     <>
       {sectionsData.map((section, index) => {
-        const isMirrored = index % 2 !== 0; // Check if the section should be mirrored
+        const isMirrored = index % 2 !== 0; // Check if section should be mirrored
+        const isLast = index === sectionsData.length - 1; // Check if it's the last section
 
         return (
           <Bounded
             key={index}
             className={clsx(
-              "sticky top-[calc(var(--index)*2rem)] bg-texture",
+              !isLast && "sticky top-[calc(var(--index)*2rem)]", // Sticky unless last section
+              "bg-texture",
               section.theme === "Blue" && "bg-brand-blue text-white",
               section.theme === "Orange" && "bg-brand-orange text-white",
               section.theme === "Navy" && "bg-brand-navy text-white",
-              section.theme === "Lime" && "bg-brand-lime"
+              section.theme === "Lime" && "bg-brand-lime",
+              isLast && "relative z-10" // Ensures last section is above the others
             )}
-            style={{ "--index": index } as React.CSSProperties}
+            style={
+              {
+                "--index": index,
+                ...(isLast && { zIndex: 10 }),
+              } as React.CSSProperties
+            }
           >
             <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-24">
               {/* Conditionally reorders the image and text */}
