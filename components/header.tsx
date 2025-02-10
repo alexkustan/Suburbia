@@ -12,9 +12,15 @@ export const Header: React.FC = () => {
         </Link>
         <nav className=" col-span-full row-start-2 md:col-span-1 md:col-start-2 md:row-start-1">
           <ul className="flex flex-wrap items-center justify-center gap-8 ~text-lg/xl">
-            <li>Team</li>
-            <li>Customizer</li>
-            <li>About</li>
+            <li>
+              <Link href="/">Team</Link>
+            </li>
+            <li>
+              <Link href="/build">Customizer</Link>
+            </li>
+            <li>
+              <Link href="/">About</Link>
+            </li>
           </ul>
         </nav>
         <div className="justify-self-end ">
