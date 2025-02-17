@@ -4,6 +4,7 @@ import { Heading } from "./heading";
 import { ButtonLink } from "./ButtonLink";
 import { WideLogo } from "./wide-logo";
 import { TallLogo } from "./tall-logo";
+import { InteractiveSkateboard } from "./3D/Interactive-skateboard";
 
 export const Hero: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ export const Hero: React.FC = () => {
           </ButtonLink>
         </div>
       </div>
+      <InteractiveSkateboard />
     </Bounded>
   );
 };

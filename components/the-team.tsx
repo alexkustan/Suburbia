@@ -2,6 +2,7 @@ import React from "react";
 import { Bounded } from "./bounded";
 import { Heading } from "./heading";
 import { Skater } from "./skater";
+import { SlideIn } from "./slide-in";
 
 const skaters = [
   {
@@ -41,25 +42,27 @@ const skaters = [
 export const TheTeam: React.FC = () => {
   return (
     <Bounded className="bg-brand-navy bg-texture">
-      <Heading className="text-white mb-8 text-center" size="lg">
-        the team
-      </Heading>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-        {skaters.map((skater, index) => (
-          <React.Fragment key={index}>
-            {skater.firstName && (
-              <Skater
-                foregroundImage={skater.foregroundImage}
-                backgroundImage={skater.backgroundImage}
-                firstName={skater.firstName}
-                lastName={skater.lastName}
-                customizerLink={skater.customizerLink}
-                index={skater.id}
-              />
-            )}
-          </React.Fragment>
-        ))}
-      </div>
+      <SlideIn>
+        <Heading className="text-white mb-8 text-center" size="lg">
+          the team
+        </Heading>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          {skaters.map((skater, index) => (
+            <React.Fragment key={index}>
+              {skater.firstName && (
+                <Skater
+                  foregroundImage={skater.foregroundImage}
+                  backgroundImage={skater.backgroundImage}
+                  firstName={skater.firstName}
+                  lastName={skater.lastName}
+                  customizerLink={skater.customizerLink}
+                  index={skater.id}
+                />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </SlideIn>
     </Bounded>
   );
 };

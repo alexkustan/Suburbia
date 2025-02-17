@@ -4,6 +4,8 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { SVGFilters } from "@/components/SVG-filters";
 import { Footer } from "@/components/footer";
+import { VideoSection } from "@/components/video-section";
+import { TheTeam } from "@/components/the-team";
 
 const bowly = Bowlby_One_SC({
   subsets: ["latin"],
@@ -37,6 +39,8 @@ export default function RootLayout({
         <main>
           <Header />
           {children}
+          <VideoSection />
+          <TheTeam />
           <Footer />
         </main>
         <SVGFilters />
