@@ -4,9 +4,19 @@ import { Heading } from "./heading";
 import { ButtonLink } from "./ButtonLink";
 import { WideLogo } from "./wide-logo";
 import { TallLogo } from "./tall-logo";
-import { InteractiveSkateboard } from "./3D/Interactive-skateboard";
+import { InteractiveSkateboard } from "./Interactive-skateboard";
+
+const DEFAULT_DECK_TEXTURE = "/skateboard/Deck.webp";
+const DEFAULT_WHEEL_TEXTURE = "/skateboard/SkateWheel1.png";
+const DEFAULT_TRUCK_COLOR = "#6F6E6A";
+const DEFAULT_BOLT_COLOR = "#6F6E6A";
 
 export const Hero: React.FC = () => {
+  const deckTextureURL = DEFAULT_DECK_TEXTURE;
+  const wheelTextureURL = DEFAULT_WHEEL_TEXTURE;
+  const truckColor = DEFAULT_TRUCK_COLOR;
+  const boltColor = DEFAULT_BOLT_COLOR;
+
   return (
     <Bounded className="bg-brand-pink relative h-dvh text-zinc-800 bg-texture">
       <div className="absolute inset-0 flex items-center pt-20">
@@ -32,7 +42,12 @@ export const Hero: React.FC = () => {
           </ButtonLink>
         </div>
       </div>
-      <InteractiveSkateboard />
+      <InteractiveSkateboard
+        deckTextureURL={deckTextureURL}
+        wheelTextureURL={wheelTextureURL}
+        truckColor={truckColor}
+        boltColor={boltColor}
+      />
     </Bounded>
   );
 };
