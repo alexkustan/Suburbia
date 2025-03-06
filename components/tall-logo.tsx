@@ -1,13 +1,17 @@
+"use client";
+
 import clsx from "clsx";
 import { SVGProps } from "react";
+import { useIsSafari } from "@/lib/use-is-safari";
 
 export function TallLogo({ className, ...props }: SVGProps<SVGSVGElement>) {
+  const IsSafari = useIsSafari(true);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 366 420"
-      className={clsx(className, "animate-squiggle")}
+      className={clsx(className, IsSafari ? undefined : "animate-squiggle")}
       {...props}
     >
       <path
