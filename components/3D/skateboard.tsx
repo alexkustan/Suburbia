@@ -191,7 +191,7 @@ export function Skateboard({
   return (
     <group
       dispose={null}
-      rotation={positions[pose].rotation}
+      rotation={new THREE.Euler(...positions[pose].rotation)}
       position={positions[pose].position}
     >
       <group name="Scene">
