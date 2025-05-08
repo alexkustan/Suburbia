@@ -92,7 +92,9 @@ export function FooterPhysics({
     World.add(engine.current.world, boundaries);
 
     const mouse = Mouse.create(render.canvas);
-    mouse.element.removeEventListener("wheel", mouse.mousewheel);
+    render.canvas.addEventListener("wheel", (e) => e.preventDefault(), {
+      passive: false,
+    });
 
     const mouseConstraint = MouseConstraint.create(engine.current, {
       mouse,
